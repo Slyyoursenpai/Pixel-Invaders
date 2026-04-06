@@ -3,7 +3,7 @@ version 41
 __lua__
 
 function _init()
-
+score = 0
 game_state="play"
 
 -- player attributes
@@ -17,7 +17,7 @@ bullets={}
 --invader attributes
 invaders = {}
 inv_dir = 1
-inv_speed = 0.1
+inv_speed = 0.37
 
 for y=0,3 do
  for x=0,7 do
@@ -81,6 +81,7 @@ end
 			if abs(b.x-i.x)<5 and abs(b.y-i.y)<5 then
 				del(bullets,b)
 				del(invaders,i)
+				score+=1
 				break
 				end
 			end
@@ -113,10 +114,12 @@ if game_state == "play" then
 	draw_game()
 	
 elseif game_state == "win" then
-	print("you saved the day",50,50,11)
+	print("you saved the day",30,50,11)
+	print("your score: "..score, 30, 65, 7)
 	print("press ❎ to restart")
 elseif game_state =="lose" then
-	print("game over",44,60,8)
+	print("game over",30,60,8)
+	print("your score: "..score, 30, 67, 7)
 	print("print ❎ to restart")
 end
 end
@@ -132,10 +135,10 @@ function draw_game()
 --invaders
 	for i in all(invaders) do
 	spr(2,i.x,i.y)
+--score
+	print("score: "..score, 2, 2, 7)	
 	end			
 end
-
-
 __gfx__
 00000000000000000033330000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 00000000000000003300003300000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
