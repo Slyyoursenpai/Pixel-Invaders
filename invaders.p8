@@ -32,6 +32,13 @@ end
 
 function _update()
 
+--game reset
+if game_state != "play" then
+	if btnp(❎) then
+	_init()
+	end
+	return
+	end
 --game state logic update
 if game_state != "play" then
 		return
@@ -107,10 +114,10 @@ if game_state == "play" then
 	
 elseif game_state == "win" then
 	print("you saved the day",50,50,11)
-	print("press r to restart")
+	print("press ❎ to restart")
 elseif game_state =="lose" then
 	print("game over",44,60,8)
-	print("print r to restart")
+	print("print ❎ to restart")
 end
 end
 
