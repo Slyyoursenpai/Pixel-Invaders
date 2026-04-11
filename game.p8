@@ -6,6 +6,9 @@ function init_game() -- starts game
  game_state = "menu"
  score = 0
 
+	level=1
+	shoot_chance = 0.01
+
  inv_dir = 1 --invader att.
  inv_speed = 0.3
 
@@ -21,15 +24,21 @@ function init_game() -- starts game
  invaders = {}
 
 -- function to create invader from invader.p8
- spawn_invaders()
+-- spawn_invaders()--may remove
 end
 
 --starts game
 function start_game()
  score = 0 --resets all
+ 
+ level = 1
+ shoot_chance = 0.01
+ inv_speed = 0.3
+ 
  bullets = {}
  invaders = {}
  enemy_bullets = {}
+
 
  px = 60
  py = 120
@@ -59,21 +68,57 @@ end
 -- comstamtly checks game state
 function check_game_state()
  if #invaders == 0 then
-  game_state = "win" --win condition
+  game_state = "level_clear" --win condition
  end
 
  for i in all(invaders) do
   if i.y > 120 then
    game_state = "lose" -- lose condition
+ 		break --may remove
   end
  end
 end
 
+---- difficulty scale
+function increase_difficulty()
+ level += 1
+ 
+ inv_speed += 0.1
+ shoot_chance = min(shoot_chance + 0.005, 0.1)
+end
+
+---level next
+function next_level()
+ bullets = {}
+ invaders = {}
+ enemy_bullets = {}
+
+ spawn_invaders()
+ initial_invader_count = #invaders
+
+ game_state = "play"
+end
+
+
+------ game update
 --reset game logic
 function update_end()
- if btnp(❎) then
-  start_game()
- end
+	if game_state=="level_clear" then
+		if btnp(❎)then
+		increase_difficulty()
+		next_level()
+		end
+		
+		if btnp(🅾️)then
+		game_state="menu"
+		end
+	end
+	
+	if game_state=="lose" then
+		if btnp(❎)then
+		start_game()
+		end
+		end	
 end
 __gfx__
 00000000000000000000000000333300000333300033330003333000003333000000000000000000000000000000000000000000000000000000000000000000

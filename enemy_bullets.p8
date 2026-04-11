@@ -21,7 +21,7 @@ enemy_bullets={}
 --- enemy shoot logic
 function enemy_shoot()
 	--random enemy shoots
- if rnd(1) < 0.02 then
+ if rnd(1) < shoot_chance*level then
   local bottoms = get_bottom_invaders()
 
   -- convert table to list
@@ -44,7 +44,8 @@ function enemy_shoot()
 --update bullet
 function update_enemy_bullets()
 	for b in all(enemy_bullets) do
-		b.y+=1
+--		b.y+=1
+	b.y+=1+(level*0.1) --may use to increase bullet speed
 		
 	if b.y>128 then
 		del(enemy_bullets,b)

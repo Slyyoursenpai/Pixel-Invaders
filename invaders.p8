@@ -20,17 +20,19 @@ function update_invaders()
 	local remaining = #invaders
 	local half = initial_invader_count/2
 	local quarter = initial_invader_count/4
+	local base_speed = 0.25+(level*0.05)
 	
+	--speed scaling with level
 	if remaining == 1 then
-		inv_speed = 2.3
+		inv_speed = base_speed*4
 	elseif remaining <= 3 then
-		inv_speed = 1
+		inv_speed = base_speed*2
 	elseif remaining <=quarter then
-	inv_speed = 0.7
+	inv_speed = base_speed*1.5
 	elseif remaining <=half then
-	inv_speed = 0.5
+	inv_speed = base_speed*1.2
 	else
-	inv_speed = 0.25
+	inv_speed = base_speed
 	end
 	
 -- movement

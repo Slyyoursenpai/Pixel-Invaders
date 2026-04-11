@@ -43,12 +43,18 @@ function draw_game()
 end
 
 -- win / lose ------------------
-
-function draw_win()
- print("you saved the day",30,50,11)
- print("your score: "..score, 30, 65, 7)
- print("press ❎ to restart")
+--function draw_win()
+-- print("you saved the day",30,50,11)
+-- print("your score: "..score, 30, 65, 7)
+-- print("press ❎ to restart")
+--end
+function draw_level_clear()
+ cls()
+ print("level "..level.." cleared!", 25, 50, 11)
+ print("❎ next level", 35, 70, 7)
+ print("🅾️ menu", 40, 85, 7)
 end
+
 
 function draw_lose()
  print("game over",30,60,8)

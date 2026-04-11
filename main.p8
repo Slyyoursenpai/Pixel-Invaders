@@ -19,7 +19,9 @@ function _update()
   update_menu()
  elseif game_state == "play" then
   update_game()
- else
+	elseif game_state == "level_clear" then
+		update_end()
+	elseif game_state == "lose" then
   update_end()
  end
 end
@@ -31,8 +33,12 @@ function _draw()
   draw_menu()
  elseif game_state == "play" then
   draw_game()
- elseif game_state == "win" then
-  draw_win()
+ --elseif game_state == "win" then
+--  draw_win()
+
+	elseif game_state == "level_clear" then
+		draw_level_clear()
+
  elseif game_state == "lose" then
   draw_lose()
  end
