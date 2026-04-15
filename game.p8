@@ -3,6 +3,9 @@ version 41
 __lua__
 function init_game() -- starts game
 -- starts with menu screen
+
+	menu_music_playing = false
+
 	popups={}
  game_state = "menu"
  score = 0
@@ -31,6 +34,9 @@ end
 --starts game
 function start_game()
  score = 0 --resets all
+ 
+ menu_music_playing = false
+	music(-1,500) -- stop music
  
  level = 0
  shoot_chance = 0.01
