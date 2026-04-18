@@ -1,4 +1,8 @@
 # Pixel Invaders: Pico-8
+
+<img width="802" height="802" alt="invposter" src="https://github.com/user-attachments/assets/d78325ab-1c7d-4e8f-9288-7186066577ac" />
+
+
 Pixel Invaders using Pico-8 for learning. Inspired by the classic retro arcade, Space Invaders
 
 Controls: 
