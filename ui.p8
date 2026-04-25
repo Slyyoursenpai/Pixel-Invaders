@@ -13,7 +13,7 @@ function update_menu()
 end
 
 function draw_menu()
- print("invaders",24,40,7)
+ print("pixel invaders",10,40,7)
  -- moving invader (your logic)
  if sp_inv < 7 - sp_speed then
   sp_inv += sp_speed
@@ -21,10 +21,13 @@ function draw_menu()
   sp_inv = 3
  end
 
- spr(sp_inv,60,38)
- spr(sp_inv,75,38)
+ spr(sp_inv,69,38)
+ spr(sp_inv,81,38)
  print("press ❎ to start",20,70,7)
- print("press 🅾️ to quit")
+ print("press 🅾️/z to quit")
+ print(" ❎/x:shoot",1,103,6)
+ print(" ⬅️➡️:move",1,110,6)
+	print("p/emter:pause",6,117.6)
 end
 
 -- game draw -------------------
