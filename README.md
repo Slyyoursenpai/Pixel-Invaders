@@ -1,7 +1,7 @@
 # Pixel Invaders
 Invaders using Pico-8 for learning
 
-visit Itch.io page to download: [https://slyyoursenpai.itch.io/pixel-invaders](url)
+visit Itch.io page to download: [Pixel Invaders](https://slyyoursenpai.itch.io/pixel-invaders)
 
 Controls: 
 Arrow keys to move left and right. X to shoot
