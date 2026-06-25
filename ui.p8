@@ -27,7 +27,7 @@ function draw_menu()
  print("press 🅾️/z to quit")
  print(" ❎/x:shoot",1,103,6)
  print(" ⬅️➡️:move",1,110,6)
-	print("p/emter:pause",6,117.6)
+	print("p/enter:pause",6,117.6)
 end
 
 -- game draw -------------------
