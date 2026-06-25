@@ -7,7 +7,7 @@ function check_collisions()
   for i in all(invaders) do
    if abs(b.x-i.x)<5 and abs(b.y-i.y)<5 then
     del(bullets,b) 
-    play_enemy_destroy(7)  --destroy sfx
+    play_enemy_destroy()  --destroy sfx
     del(invaders,i)--both deleted when collision is true
    	add(popups, {
 				 x = i.x,
